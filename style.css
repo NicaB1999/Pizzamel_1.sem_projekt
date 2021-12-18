@@ -1,0 +1,677 @@
+/***********************************************/
+/***************** tekst ***********************/
+
+/*Jeg bruger font-face til at finde fontén på computeren*/
+@font-face {
+    font-family: 'Poppins', sans-serif;
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+}
+/*Jeg giver en font til h1, h2 og h3*/
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/*h1 er til banneret på hver side*/
+h1 {
+    background-color: #D79771;
+    width: 100%;
+    text-align: center; /*Centerer teksten*/
+    padding: 15px;
+    margin: 0;
+    margin-top: 125px;
+    align-items: 500px;
+}
+
+/*Jeg giver en font til body*/
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/***********************************************/
+/***************** Sidelayout ******************/
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/***********************************************/
+/***************** mobil nav *******************/
+
+/*Jeg bruger flex til at bestemme retningen for min navbar og centerer den derefter*/
+#menu {
+    /* placering af menu (Gør så vi kan placere navbaren i forhold til browser)*/
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    background-color: white;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* vi løfter menuen over andet content*/
+    z-index: 5;
+    /* menubaren animeres ind*/
+    transition: left 0.3s linear;
+
+}
+
+/*Denne style bliver brugt når der er #menu i url'en. Det bruger vi til at vise navbaren, når vi trykker på "åben navbar" ikonet*/
+#menu:target {
+    left: 0;
+}
+
+/*Jeg fjerner punkterne fra listen*/
+#menuPunkter {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    color: #753422;
+    text-decoration: none;
+    /*Flex bruges til at ligge links under hinanden og centere dem*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Jeg adskiller mine menupunkter lidt*/
+#menuPunkter a {
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    /*Jeg fjerner stregen og ændre farven*/
+    color:#753422;
+    text-decoration: none;
+    text-shadow: 0px 1px 6px #0000001d;
+    
+}
+.navlink{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    
+}
+/***********************************************/
+/************ mobil nav knapper ****************/
+
+#closeNav,
+#openNav {
+    /*Gør så vi kan placere krydset i navbaren som vi vil*/
+    position: absolute;
+    top: 30px;
+    text-decoration: none;
+    font-size: 45px;
+    color: black;
+    
+}
+
+/*knapper til åben og luk af navbar*/
+#closeNav {
+    right: 40px;
+   
+}
+#openNav {
+    right: 40px;
+
+}
+
+/***********************************************/
+/************ mobil nav logo *******************/
+
+/*logoet i navbaren*/
+#logo {
+    width: 60%;
+    display: block; 
+}
+
+/*Jeg giver logoet 100% af forældrens 60%*/
+#logo img {
+    width: 100%;
+
+}
+
+/***********************************************/
+/*************** mobil topbar ******************/
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+}
+
+/*Tilpasning af logo i toppen på mobil*/
+#logoTop,
+#logoTopDesktop {
+    /*Fordi der er et link sætter vi display block for at kunne bruge margin og width*/
+    display: block;
+    width: 45%;
+    background-color: white;
+    max-width: 200px;
+    padding: 15px;
+    margin: 5px;
+    
+}
+
+#logoTop img,
+#logoTopDesktop img {
+    width: 100%;
+}
+
+#menuPunkter #logoTopDesktop {
+    display: none;
+}
+
+/***********************************************/
+/********* stylesheet for kontakt **************/
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    border-color: #fbfcfa;
+
+}
+
+#indhold {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Style the submit button with a specific background color etc */
+#contactButton {
+    background-color: #753422;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin-top: 40px;
+}
+label {
+    color: black;
+}
+
+/***********************************************/
+/************ mobil Landingpage ****************/
+
+/*Jeg laver css specifikt til headeren på vores landingpage*/
+#landingHeader {
+    height: 115px;
+}
+#landingHeader #logoTop {
+    /*Logoet ligges ud over header (en del af det ønskede design)*/
+    position: absolute;  
+    
+}
+#pizzamelmobil{
+    width: 100%;
+    padding-top: 100px;
+    margin-top: 50px;
+}
+#mainlanding{
+    position:relative;
+}
+
+#pizzamelimg{
+    width: 50%;
+    height: auto;
+    display: none;
+}
+
+#klickher{
+    display: flex;
+    color: black;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 75px;
+}
+
+#opdatering{
+    display: flex;
+    color: black;
+    justify-content: center;
+}
+
+#pagefrontcontent{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    margin-bottom: 30px;
+        
+}
+#seopskrift{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+#pizzamelweb{
+    display: none;
+}
+
+/***********************************************/
+/********** stylesheet for Om Os **************/
+#crusts{
+    width: 40%;
+    margin-top: 40px;
+    margin-left: 10%;
+}
+
+#cruststext{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: black;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    margin-left: 10%;
+    margin-top: 100px;
+}
+
+/***********************************************/
+/********** stylesheet for Opskrift ***************/
+#rulle{
+    width: 50%;
+   display: flex;
+   justify-content: center;
+   margin-top: 20%;
+}
+
+#omopskrift{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: black;
+    margin-top:  30%;
+    margin-left: 17%;
+    font-size: large;
+    display: none;
+}
+
+#ingogbes{
+    display: flex;
+    font-size: 20px;
+    color: black;
+    margin-top:  30%;
+    margin-right: 10%;
+    font-weight: 100;
+}
+
+#ngredienstext{
+    display: flex;
+}
+
+#opskriftvideo{
+    display: flex;
+    justify-content: center;
+}
+
+/************ stylesheet for Tips og Tricks ********/
+#pizzatip{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    margin-bottom: 30px;
+    margin-top: 20%;
+
+}
+
+#snackstext{
+    display: flex;
+    justify-content: center;
+    font-size: px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+#snacktip{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    margin-bottom: 100px;
+}
+#snackstext{
+    display: flex;
+    justify-content: center;
+    font-size: px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+#omsnackspiz{
+    margin-left: 19%;
+    display: flex;
+    justify-content: center;
+}
+
+/*************** stylesheet for landingpage img********/
+.pizzaet {
+    margin:  auto;
+    align-items: center;
+}
+
+/***********************************************/
+/********** stylesheet for footer **************/
+.footer {
+    background-color: #D79771;
+    padding: 10px 20px;
+    text-align: left;
+    background-size: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 5%;
+}
+
+#textfooter {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+#socialmedie {
+    display: flex;
+    align-items: center;
+}
+.icons {
+    width: 50px;
+    display: block;
+    margin-left: 10px;
+}
+.icons img {
+    width: 100%;
+}
+p {
+    margin: 5px;
+    font-size: 14px;
+}
+
+.search:focus{
+    outline: none;
+}
+
+/***********************************************/
+/********* mediaquery til web ******************/
+
+@media only screen and (min-width: 1200px) {
+    /*Jeg tilpasser naven til web*/
+    #closeNav,
+    #openNav,
+    #logo,
+    #logoTop {
+        /*Disse funktioner vil vi ikke vise*/
+        display: none;
+    }
+    
+    #menuPunkter #logoTopDesktop {
+        display: block;
+        padding: 0;
+        width: 150px;
+       
+    }
+
+    #menuPunkter #logoTopDesktop a {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu {
+        position: relative;
+        left: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    #menuPunkter {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        margin-top: 50px;
+    }
+
+    #menuPunkter a {
+        color: #753422;
+    }
+
+    /*Jeg tilpasser footer til web*/
+
+    #socialmedie {
+        padding-left: 250px;
+    }
+
+   /*Jeg tilpasser kontakt til web*/
+    input[type="text"],
+select,
+textarea {
+    width: 200%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    border-color: #FFEBC9;
+}
+
+#indhold {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px 50px;
+ 
+}
+/* Style the submit button with a specific background color etc */
+#contactButton {
+    background-color: #753422;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    margin-top: 10px;
+}
+label {
+    color: black;
+}
+    /* Jeg tipasse landpage img ind*/
+    #pizzamelmobil{
+        display: none; 
+    }
+
+    #pizzamelweb{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+/********* stylesheet til opskrift*******/
+
+    #rulle{
+        width: 30%;
+        margin-bottom: 400px;
+        margin-left: 10%;
+        padding-bottom: 500px;
+    }
+
+    #opskriftvideo{
+        display: flex;
+        margin-top: 10%;
+    }
+    
+    #omopskrift{
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        color: black;
+        margin-top:  30%;
+        margin-left: 17%;
+        font-size: large;
+    }
+
+/******* stylesheet for tips og tricks********/
+
+    #pizzatip{
+        width: 25%;
+        margin-bottom: 30px;
+        margin-left: 16%;
+        margin-bottom: 20%;
+    }
+    
+    #snackstext{
+        display: flex;
+        justify-content: center;
+        font-size: px;
+        color: black;
+        margin-bottom: 30px;
+    }
+    
+    #snacktip{
+        width: 25%;
+        margin-bottom: 100px;
+        margin-left: 16%;
+    }
+    #snackstext{
+        display: flex;
+        justify-content: center;
+        font-size: px;
+        color: black;
+        margin-bottom: 30px;
+    }
+    
+    #omsnackspiz{
+        margin-left: 19%;
+    }
+
+    /***********************************************/
+/********** stylesheet for Om os ***************/
+#pizzamelimg{
+    width: 50%;
+    height: 50%;
+    margin-bottom: 30px;
+    background-color:#FFEBC9;
+    margin-top: 90px;
+    margin-left: 50px;
+}
+#ompizzamel{
+    display: flex;
+    justify-content: center;
+    font-size: px;
+    color: black;
+    margin-bottom: 30px;
+    margin-right: 40%;
+    padding-left: 70px;
+}
+
+#ingredienser{
+    display: flex;
+    justify-content: center;
+    font-size: px;
+    color: black;
+    margin-bottom: 30px;
+    margin-right: 10%;
+}
+
+    h1{
+        margin-top: 130px;
+        text-align: center;
+}
+
+#logoTop img,
+#logoTopDesktop img {
+    width: 100%;
+    margin-bottom: 100px;
+    text-align: center;
+
+}
+
+#pizzamelweb{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+}
+
+#pizzamelmobil{
+    display: none;
+}
+    
+    
+    /*Jeg tilpasser  tips og tricks ind*/
+    #Konkurrence{
+        display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px 50px;
+ 
+    }
+    #Konkurrence{
+        width: 40%
+}
+    #textkonkurrence{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+    }
+    #vind{
+        font-size: 35px;
+        margin-bottom: 80px;
+       
+    }
+    #foratdeltage{
+        font-size: 20px;
+    }
+    
+  
+}
